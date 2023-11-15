@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>La Travesia</title>
+    <style>
+        body {
+            background-image: url("https://starwalk.space/gallery/images/what-is-space/1920x1080.jpg");
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            color: white;
+            font-size: 40px;
+        }
+        h1 {
+            color: red;
+            font-size: 75px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        button {
+            display: inline-block;
+            padding: 5px 20px;  
+        }
+        p {
+            background-color: aquamarine;
+            font-size: 20px;
+            background-size: 20px;
+        }
+        h4 {
+            font-size: 40px;
+            color: whitesmoke;
+        }
+        h7 {
+            color:red;
+        }
+
+        /* Media queries para dispositivos móviles */
+        @media only screen and (max-width: 1000px) {
+            h2 {
+                font-size: 100px;
+            }
+            h1 {
+                font-size: 150px;
+            }
+            button {
+                padding: 50px 200px;
+                color: black;
+                font-size: 35px;
+                text-decoration: none;
+                border-radius: 10px;  
+            }
+            p {
+                font-size: 30px;
+            }
+            h4 {
+                font-size: 90px;
+            }
+            h7 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Travesia</h1>
+        <h4>Seleccione la dificultad:</h4>
+        <h7>No olvides la jerarquia</h7>
+        <h2>Facil</h2>
+        <button onclick="generarEcuacionFacil()" style="background-color: green;">Generar</button>
+        <p id="resultadoFacil"></p>
+        <h2>Mediano</h2>
+        <button onclick="generarEcuacionMediano()" style="background-color: yellow;">Generar</button>
+        <p id="resultadoMediano"></p>
+        <h2>Dificil</h2>
+        <button onclick="generarEcuacionDificil()" style="background-color: red;">Generar</button>
+        <p id="resultadoDificil"></p>
+        <h7>Todos los derechos reservados para Travesia(r) por Mike</h7>
+    </center>
+    <script>
+        function generarEcuacionFacil() {
+            var num1 = Math.floor(Math.random() * 10) + 1;
+            var num2 = Math.floor(Math.random() * 10) + 1;
+            var num3 = Math.floor(Math.random() * 10) + 1;
+            var operador1 = ["+", "-", "*"][Math.floor(Math.random() * 3)];
+            var operador2 = ["+", "-", "*"][Math.floor(Math.random() * 3)];
+            var ecuacion1 = num1 + operador1 + num2 + operador2 + num3;
+            var resultado1 = Math.round(eval(ecuacion1));
+
+            document.getElementById("resultadoFacil").innerHTML = "Ecuacion: " + ecuacion1 + "<br>Resultado: " + resultado1;
+        }
+
+        function generarEcuacionMediano() {
+            var num5 = Math.floor(Math.random() * 10);
+            var num6 = Math.floor(Math.random() * 10);
+            var num7 = Math.floor(Math.random() * 10);
+            var numm = Math.floor(Math.random() * 10);
+            var operador4 = ["+", "-", "*", "/"][Math.floor(Math.random() * 4)];
+            var operador5 = ["+", "-", "*", "/"][Math.floor(Math.random() * 4)];
+            var operadorm = ["+", "-", "*", "/"][Math.floor(Math.random() * 4)];
+            var ecuacion2 = num5 + operador4 + num6 + operador5 + num7 + operadorm + numm;
+            var resultado2 = Math.round(eval(ecuacion2));
+
+            document.getElementById("resultadoMediano").innerHTML = "Ecuacion: " + ecuacion2 + "<br>Resultado: " + resultado2;
+        }
+
+        function generarEcuacionDificil() {
+            var num8 = Math.pow((Math.floor(Math.random() * 10)), 2);
+            var num9 = Math.pow((Math.floor(Math.random() * 10)), 2);
+            var num10 = Math.pow((Math.floor(Math.random() * 10)), 2);
+
+            // Asegurar que solo hay una posibilidad del 25% de generarse con exponente
+            while (Math.random() < 0.25) {
+                num8 = Math.pow((Math.floor(Math.random() * 10)), 2);
+                num9 = Math.pow((Math.floor(Math.random() * 10)), 2);
+                num10 = Math.pow((Math.floor(Math.random() * 10)), 2);
+            }
+            var operador6 = ["+", "-", "*", "/"][Math.floor(Math.random() * 4)];
+            var operador7 = ["+", "-", "*", "/"][Math.floor(Math.random() * 4)];
+            var ecuacion3 = num8 + operador6 + num9 + operador7 + num10;
+            var resultado3 = Math.round(eval(ecuacion3));
+
+            document.getElementById("resultadoDificil").innerHTML = "Ecuacion: " + ecuacion3 + "<br>Resultado: " + resultado3;
+        }
+    </script>
+</body>
+</html>
